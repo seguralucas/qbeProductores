@@ -1,0 +1,8 @@
+{
+    "type": "https://whirlpool.custhelp.com/services/rest/connect/exceptions/OSC-CREST-00007",
+    "title": "Un uso de un parámetro de consulta no es válido",
+    "status": 400,
+    "detail": "Invalid use of query parameter query",
+    "instance": "https://whirlpool.custhelp.com/services/rest/connect/v1.3/queryResults/?query=select%20id%20from%20Whirlpool.Compra%20where%20ordenCompra=%27",
+    "o:errorCode": "OSC-CREST-00007"
+}

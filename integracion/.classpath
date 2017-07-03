@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="dependencias/commons-net-3.0.1.jar"/>
+	<classpathentry kind="lib" path="dependencias/jackson-core-2.2.2-sources.jar"/>
+	<classpathentry kind="lib" path="dependencias/javacsv.jar"/>
+	<classpathentry kind="lib" path="dependencias/jersey-bundle-1.19.1.jar"/>
+	<classpathentry kind="lib" path="dependencias/json-simple-1.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="dependencias/sun.misc.BASE64Decoder.jar"/>
+	<classpathentry kind="lib" path="dependencias/w3c-dom.jar"/>
+	<classpathentry kind="lib" path="dependencias/com.jcraft.jsch_0.1.31.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

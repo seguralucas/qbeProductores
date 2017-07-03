@@ -1,0 +1,41 @@
+""
+128744 de la entidad contactoCompraProducto
+FileName: null Metodo: socketRead0Clase java.net.SocketInputStream Linea -2
+FileName: null Metodo: socketReadClase java.net.SocketInputStream Linea -1
+FileName: null Metodo: readClase java.net.SocketInputStream Linea -1
+FileName: null Metodo: readClase java.net.SocketInputStream Linea -1
+FileName: null Metodo: readFullyClase sun.security.ssl.InputRecord Linea -1
+FileName: null Metodo: readClase sun.security.ssl.InputRecord Linea -1
+FileName: null Metodo: readRecordClase sun.security.ssl.SSLSocketImpl Linea -1
+FileName: null Metodo: readDataRecordClase sun.security.ssl.SSLSocketImpl Linea -1
+FileName: null Metodo: readClase sun.security.ssl.AppInputStream Linea -1
+FileName: null Metodo: fillClase java.io.BufferedInputStream Linea -1
+FileName: null Metodo: read1Clase java.io.BufferedInputStream Linea -1
+FileName: null Metodo: readClase java.io.BufferedInputStream Linea -1
+FileName: null Metodo: parseHTTPHeaderClase sun.net.www.http.HttpClient Linea -1
+FileName: null Metodo: parseHTTPClase sun.net.www.http.HttpClient Linea -1
+FileName: null Metodo: getInputStream0Clase sun.net.www.protocol.http.HttpURLConnection Linea -1
+FileName: null Metodo: getInputStreamClase sun.net.www.protocol.http.HttpURLConnection Linea -1
+FileName: null Metodo: getResponseCodeClase java.net.HttpURLConnection Linea -1
+FileName: null Metodo: getResponseCodeClase sun.net.www.protocol.https.HttpsURLConnectionImpl Linea -1
+FileName: AbstractHTTP.java Metodo: realizarPeticionClase exit.services.principal.peticiones.AbstractHTTP Linea 74
+FileName: Ejecutor.java Metodo: updateRecuperandoIdPorQueryClase exit.services.principal.Ejecutor Linea 58
+FileName: null Metodo: invokeClase sun.reflect.GeneratedMethodAccessor1 Linea -1
+FileName: null Metodo: invokeClase sun.reflect.DelegatingMethodAccessorImpl Linea -1
+FileName: null Metodo: invokeClase java.lang.reflect.Method Linea -1
+FileName: Ejecutor.java Metodo: ejecutarClase exit.services.principal.Ejecutor Linea 193
+FileName: GetVTEXOMSServicioAServicio.java Metodo: procesarPeticionOKClase exit.services.principal.peticiones.vtex.GetVTEXOMSServicioAServicio Linea 78
+FileName: AbstractHTTP.java Metodo: realizarPeticionClase exit.services.principal.peticiones.AbstractHTTP Linea 84
+FileName: AbstractHTTP.java Metodo: realizarPeticionClase exit.services.principal.peticiones.AbstractHTTP Linea 55
+FileName: GetVTEXOMSServicioAServicio.java Metodo: procesarPeticionOKClase exit.services.principal.peticiones.vtex.GetVTEXOMSServicioAServicio Linea 123
+FileName: AbstractHTTP.java Metodo: realizarPeticionClase exit.services.principal.peticiones.AbstractHTTP Linea 90
+FileName: AbstractHTTP.java Metodo: realizarPeticionClase exit.services.principal.peticiones.AbstractHTTP Linea 41
+FileName: Ejecutor.java Metodo: ejecutorServicioAServicioVTEXOMSClase exit.services.principal.Ejecutor Linea 163
+FileName: null Metodo: invokeClase sun.reflect.GeneratedMethodAccessor2 Linea -1
+FileName: null Metodo: invokeClase sun.reflect.DelegatingMethodAccessorImpl Linea -1
+FileName: null Metodo: invokeClase java.lang.reflect.Method Linea -1
+FileName: Ejecutor.java Metodo: ejecutarClase exit.services.principal.Ejecutor Linea 197
+FileName: Ejecutor.java Metodo: ejecutarClase exit.services.principal.Ejecutor Linea 183
+FileName: Principal.java Metodo: servicioAServicioClase exit.services.principal.Principal Linea 114
+FileName: Principal.java Metodo: mainClase exit.services.principal.Principal Linea 38
+---------------------------------------------------------------------
