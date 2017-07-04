@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import exit.services.fileHandler.CSVHandler;
@@ -22,6 +23,10 @@ public class JsonGenerico extends AbstractJsonRestEstructura{
 	
 	public JsonGenerico(ConfiguracionEntidadParticular confEntidadPart) throws Exception {
 		super(confEntidadPart);
+	}
+	
+	public JsonGenerico(JSONObject json) throws Exception {
+		super(json);
 	}
 	
 	@Override

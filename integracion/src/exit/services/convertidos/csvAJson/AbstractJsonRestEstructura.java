@@ -39,6 +39,12 @@ public abstract class AbstractJsonRestEstructura {
 		mapCabeceraValor= new HashMap<String, Object>();
 	}
 	
+	public AbstractJsonRestEstructura(JSONObject json) throws Exception {
+		super();
+		this.json=json;
+		
+	}
+	
 	public HashMap<String, Object> getMapCabeceraValor(){
 		return mapCabeceraValor;
 	}
@@ -294,6 +300,9 @@ public abstract class AbstractJsonRestEstructura {
 	}
 	public JSONObject getJson() {
 		return json;
+	}
+	public void setJson(JSONObject json) {
+		this.json = json;
 	}
 
 	

@@ -1,0 +1,33 @@
+{
+	"CLASE_PRODUCTOR":{
+	"tipo":"cadena"	
+	},
+	"CLIENSEC":{
+	"tipo":"entero"
+	},
+	"CODIGO_COMPLETO":{
+		"tipo":"cadena"
+	},
+	"DNI_CUIT":{
+		"tipo":"cadena"	
+	},
+	"EJECUTIVO_CUENTA":{
+		"tipo":"cadena"
+	},
+	"GRUPO_ORGANIZADOR":{
+		"tipo":"cadena"
+	},
+	"NOMBRE":{
+		"tipo":"entero"
+	},
+	"ORGANIZADOR":{
+		"tipo":"entero"
+	},
+	"SEGMENTACION":{
+		"tipo":"entero"
+	},
+	"UNIDAD_NEGOCIO":{
+		"tipo":"entero"
+	}
+}
+

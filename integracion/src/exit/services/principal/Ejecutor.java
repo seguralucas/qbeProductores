@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import com.csvreader.CsvWriter;
 
 import exit.services.convertidos.csvAJson.AbstractJsonRestEstructura;
+import exit.services.convertidos.csvAJson.JsonGenerico;
 import exit.services.excepciones.ExceptionBiactiva;
 import exit.services.fileHandler.CSVHandler;
 import exit.services.principal.peticiones.AbstractHTTP;
@@ -31,7 +32,7 @@ public class Ejecutor {
 	
 
 	
-	public Object updateRecuperandoIdPorQuery(String parametros, AbstractJsonRestEstructura jsonEst){
+	public Object updateRecuperandoIdPorQuery(String parametros, AbstractJsonRestEstructura jsonEst, String urlInsertUpdate){
 		String idOrder="No obtenido";
 		try{
 		String separador=jsonEst.getConfEntidadPart().getIdentificadorAtributo();
@@ -55,26 +56,52 @@ public class Ejecutor {
 		if(id!=null){
 			System.out.println("Se va a actualizar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre()+ "con id: "+id);
 			UpdateGenericoRightNow update= new UpdateGenericoRightNow();
-			return update.realizarPeticion(EPeticiones.UPDATE, jsonEst.getConfEntidadPart().getUrl() , id, jsonEst,jsonEst.getConfEntidadPart().getCabecera(),jsonEst.getConfEntidadPart());
+			return update.realizarPeticion(EPeticiones.UPDATE, urlInsertUpdate , id, jsonEst,jsonEst.getConfEntidadPart().getCabecera(),jsonEst.getConfEntidadPart());
 		}
-		/*System.out.println("Se va a insertar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre());
+		System.out.println("Se va a insertar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre());
 			PostGenerico insertar= new PostGenerico();
-			return insertar.realizarPeticion(EPeticiones.POST, jsonEst.getConfEntidadPart().getUrl(), jsonEst,jsonEst.getConfEntidadPart().getCabecera());*/
+			return insertar.realizarPeticion(EPeticiones.POST, urlInsertUpdate, jsonEst,jsonEst.getConfEntidadPart().getCabecera());
 		}
 		catch(Exception e){
 			CSVHandler csv= new CSVHandler();
 			try {
 				csv.escribirCSV("errorAlActualizar.csv", idOrder);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-/*			System.out.println("Se va a insertar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre());
-			PostGenerico insertar= new PostGenerico();
-			return insertar.realizarPeticion(EPeticiones.POST, jsonEst.getConfEntidadPart().getUrl(),jsonEst,jsonEst.getConfEntidadPart().getCabecera());			*/
 		}
-		return null;//Borrar al descomentar
+		return null;
 	}
+	
+	public Object updateRecuperandoIdPorQuery(String parametros, AbstractJsonRestEstructura jsonEst){
+		return this.updateRecuperandoIdPorQuery(parametros, jsonEst,jsonEst.getConfEntidadPart().getUrl() );
+	}
+	
+	public Object updateRecuperandoIdPorQuery(String parametros, JSONObject jsonEst, String urlInsertUpdate, ConfiguracionEntidadParticular conf){
+		String idOrder="No obtenido";
+		try{
+		GetExistFieldURLQueryRightNow get= new GetExistFieldURLQueryRightNow();
+		String id=(String)get.realizarPeticion(EPeticiones.GET, parametros,null,null,conf.getCabecera(), conf);
+		if(id!=null){
+			System.out.println("Se va a actualizar la entidad: "+  conf.getEntidadNombre()+ "con id: "+id);
+			UpdateGenericoRightNow update= new UpdateGenericoRightNow();
+			return update.realizarPeticion(EPeticiones.UPDATE, urlInsertUpdate , id, new JsonGenerico(jsonEst),conf.getCabecera(),conf);
+		}
+		System.out.println("Se va a insertar la entidad: "+  conf.getEntidadNombre());
+			PostGenerico insertar= new PostGenerico();
+			return insertar.realizarPeticion(EPeticiones.POST, urlInsertUpdate, new JsonGenerico(jsonEst),conf.getCabecera());
+		}
+		catch(Exception e){
+			CSVHandler csv= new CSVHandler();
+			try {
+				csv.escribirCSV("errorAlActualizar.csv", idOrder);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
 	
 	public void ejecutorGenericoCsvAServicio(AbstractJsonRestEstructura jsonEst){
 			try{
@@ -86,81 +113,72 @@ public class Ejecutor {
 			}
 	}
 	
-	private String getParametroDateOMG(Integer cantDias){
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		String hasta = sdf.format(new Date());
-		Date d= new Date();
-		Calendar c = Calendar.getInstance();
-		c.setTime(d);
-		c.add(Calendar.DATE, -1*cantDias);
-		d.setTime( c.getTime().getTime() );
-		String desde=sdf.format(d);
-		return "f_creationDate=creationDate:%5B"+desde+"T00:00:00.000Z+TO+"+hasta+"T23:59:59.999Z%5D";		    
+	private final String URL_QBE_SERVICIOS="https://qbe.custhelp.com/services/rest/connect/v1.3/";
+	private final String URL_QBE_QUERYS=URL_QBE_SERVICIOS+"queryResults/?query=";
+	private String getIdUnidadDeNegocio(AbstractJsonRestEstructura json, String entidad, String elemento){
+		GetExistFieldURLQueryRightNow get= new GetExistFieldURLQueryRightNow();
+		return (String)get.realizarPeticion(EPeticiones.GET, URL_QBE_QUERYS+"select%20id%20from%20Qbe."+entidad+"%20where%20Descripcion%20=%20%27"+json.getMapCabeceraValor().get(elemento).toString().replaceAll(" ","%20")+"%27",null,null,json.getConfEntidadPart().getCabecera(), json.getConfEntidadPart());
 	}
 
-	private String getParametroDateMasterData(Integer cantDias){
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		String hasta = sdf.format(new Date());
-		Date d= new Date();
-		Calendar c = Calendar.getInstance();
-		c.setTime(d);
-		c.add(Calendar.DATE, -1*cantDias);
-		d.setTime( c.getTime().getTime() );
-		String desde=sdf.format(d);
-		return "_where=createdIn%20between%20"+desde+"%20AND%20"+hasta;		    
-	}
+	private JSONObject armarJsonProductor(AbstractJsonRestEstructura json){
+		String idUnidadDeNegocio=getIdUnidadDeNegocio(json,"UnidadDeNegocio","UNIDAD_NEGOCIO");
+		String idOrganizador=getIdUnidadDeNegocio(json,"Organizador","ORGANIZADOR");
+		String idGrupoOrganizador=getIdUnidadDeNegocio(json,"GrupoOrganizador","GRUPO_ORGANIZADOR");
+		System.out.println(idUnidadDeNegocio+" "+idOrganizador+" "+idGrupoOrganizador);
+		JSONObject jsonProductor=(JSONObject)json.getJson().get("productor");
+		JSONObject jsonIdUnidadDeNegocio = new JSONObject();
+		JSONObject jsonIdOrganizador = new JSONObject();
+		JSONObject jsonIdGrupoOrganizador = new JSONObject();
 
-	
-	public Object ejecutorServicioACsvVTEXOMS(String cantidadDias) throws UnsupportedEncodingException{
-		ConfiguracionEntidadParticular r= RecEntAct.getInstance().getCep();
-		AbstractHTTP getVTEXGenerico= new GetVTEXOMSServicioACSV();
-		String identificadorAtr=r.getIdentificadorAtributo();
-		String cabeceraUrl=r.getFiltros().replaceAll(identificadorAtr+"NRO_PAG"+identificadorAtr, String.valueOf(r.getPaginaActual()));
-		Integer cantDias=Integer.parseInt(cantidadDias);
-		String parametroDate=getParametroDateOMG(cantDias);
-		String parametrosFianl;
-		if(cantDias==-1)
-			parametrosFianl=cabeceraUrl;
-		else
-			parametrosFianl=cabeceraUrl+"&"+parametroDate;
-	
-		System.out.println(r.getUrl()+"?"+parametrosFianl);		
-		return getVTEXGenerico.realizarPeticion(EPeticiones.GET,r.getUrl()+"?"+parametrosFianl,RecEntAct.getInstance().getCep().getCabecera());
+		jsonProductor.remove("UnidadDeNegocio");
+		jsonIdUnidadDeNegocio.put("id", Long.parseLong(idUnidadDeNegocio));		
+		jsonProductor.put("UnidadDeNegocio", jsonIdUnidadDeNegocio);
+		
+		jsonProductor.remove("Organizador");
+		jsonIdOrganizador.put("id", Long.parseLong(idOrganizador));
+		jsonProductor.put("Organizador", jsonIdOrganizador);
+		
+		jsonProductor.remove("GrupoOrganizador");
+		jsonIdGrupoOrganizador.put("id", Long.parseLong(idGrupoOrganizador));
+		jsonProductor.put("GrupoOrganizador", jsonIdGrupoOrganizador);
+		return jsonProductor;
+
 	}
 	
-	
-	public Object ejecutorServicioACsvVTEXMasterData(String cantidadDias) throws UnsupportedEncodingException{
-		ConfiguracionEntidadParticular r= RecEntAct.getInstance().getCep();
-		AbstractHTTP getGenerico= new GetVTEXMasterDataServicioACSV();
-		String identificadorAtr=r.getIdentificadorAtributo();
-		String cabeceraUrl=r.getFiltros().replaceAll(identificadorAtr+"NRO_PAG"+identificadorAtr, String.valueOf(r.getPaginaActual()));
-		Integer cantDias=Integer.parseInt(cantidadDias);
-		String parametroDate=getParametroDateMasterData(cantDias);
-		String parametrosFianl;
-		if(cantDias==-1)
-			parametrosFianl=cabeceraUrl;
-		else
-			parametrosFianl=cabeceraUrl+"&"+parametroDate;
-	
-		System.out.println(r.getUrl()+"/search?"+parametrosFianl);		
-		return getGenerico.realizarPeticion(EPeticiones.GET,r.getUrl()+"/search?"+parametrosFianl,RecEntAct.getInstance().getCep().getCabecera());
+	private String getIdContacto(AbstractJsonRestEstructura json){
+		GetExistFieldURLQueryRightNow get= new GetExistFieldURLQueryRightNow();
+		return (String)get.realizarPeticion(EPeticiones.GET, URL_QBE_QUERYS+"select%20id%20from%20contacts%20where%20Contacts.Emails.EmailList.Address=%27"+json.getMapCabeceraValor().get("MAIL").toString()+"%27",null,null,json.getConfEntidadPart().getCabecera(), json.getConfEntidadPart());
 	}
 	
-	public Object ejecutorServicioAServicioVTEXOMS(String cantidadDias){
-		ConfiguracionEntidadParticular r= RecEntAct.getInstance().getCep();
-		AbstractHTTP getVTEXGenerico= new GetVTEXOMSServicioAServicio();
-		String identificadorAtr=r.getIdentificadorAtributo();
-		String cabeceraUrl=r.getFiltros().replaceAll(identificadorAtr+"NRO_PAG"+identificadorAtr, String.valueOf(r.getPaginaActual()));
-		Integer cantDias=Integer.parseInt(cantidadDias);
-		String parametroDate=getParametroDateOMG(cantDias);
-		String parametrosFianl;
-		if(cantDias==-1)
-			parametrosFianl=cabeceraUrl;
-		else
-			parametrosFianl=cabeceraUrl+"&"+parametroDate;
-	
-		System.out.println(r.getUrl()+"?"+parametrosFianl);		
-		return getVTEXGenerico.realizarPeticion(EPeticiones.GET,r.getUrl()+"?"+parametrosFianl,RecEntAct.getInstance().getCep().getCabecera());		
+	public Object ejecutorQBEProductor(AbstractJsonRestEstructura json){
+		JSONObject aux= json.getJson();
+		json.setJson(armarJsonProductor(json));
+		String idContacto=getIdContacto(json);
+		JsonGenerico jsonProductor=(JsonGenerico) this.updateRecuperandoIdPorQuery(URL_QBE_QUERYS+"select%20id%20from%20Qbe.Productor%20where%20Cliensec%20=%20"+json.getMapCabeceraValor().get("CLIENSEC").toString(),json , URL_QBE_SERVICIOS+"Qbe.Productor");
+		Long idProductor=Long.parseLong(((JSONObject)jsonProductor.getJson().get("propiedadesExtras")).get("idproductorContacto").toString());
+		JSONObject jsonIdProductor= new JSONObject();
+		jsonIdProductor.put("id", idProductor);
+		if(idContacto==null){
+			JSONObject jsonContacto=(JSONObject)aux.get("contacto");
+			JSONObject jsonCustomer=(JSONObject)((JSONObject)jsonContacto.get("customFields")).get("Qbe");
+			jsonCustomer.put("Productor", jsonIdProductor);
+			json.setJson(jsonContacto);
+			PostGenerico insertar= new PostGenerico();
+			System.out.println("Se va a insertar el contacto");
+			return insertar.realizarPeticion(EPeticiones.POST, URL_QBE_SERVICIOS+"contacts", json ,json.getConfEntidadPart().getCabecera());
+		}
+		else{
+			JSONObject jsonContactoUpdate= new JSONObject();
+			JSONObject customFields = new JSONObject();
+			JSONObject qbe= new JSONObject();
+			qbe.put("Productor", jsonIdProductor);
+			customFields.put("Qbe", qbe);
+			jsonContactoUpdate.put("customFields", customFields);
+			json.setJson(jsonContactoUpdate);
+			System.out.println("Se va a actualizar el contacto con id: "+idContacto);
+			UpdateGenericoRightNow update= new UpdateGenericoRightNow();
+			return update.realizarPeticion(EPeticiones.UPDATE, URL_QBE_SERVICIOS+"contacts" , idContacto, json,json.getConfEntidadPart().getCabecera(),json.getConfEntidadPart());
+		}
 	}
 	
 	
@@ -179,9 +197,11 @@ public class Ejecutor {
 		ApuntadorDeEntidad.getInstance().siguienteEntidad();
 		return ejecutar(nombreMetodo,null,jsonEst);
 	}
+	
 	public Object ejecutar(String nombreMetodo, String parametros) throws ExceptionBiactiva{
 		return ejecutar(nombreMetodo,parametros,null);
 	}
+	
 	public Object ejecutar(String nombreMetodo, String parametros, AbstractJsonRestEstructura jsonEst) throws ExceptionBiactiva{
 		Class<Ejecutor> a= Ejecutor.class;
 		try {
@@ -214,6 +234,7 @@ public class Ejecutor {
 			throw new ExceptionBiactiva("Error al ejecutar ejecutor");
 		} 
 	}
+	
 	
 /*	public static void ejecutorGenerico2(AbstractJsonRestEstructura jsonEst){
 		System.out.println("ttt");		

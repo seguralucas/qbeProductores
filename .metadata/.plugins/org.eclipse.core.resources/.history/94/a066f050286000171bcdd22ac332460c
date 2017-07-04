@@ -1,0 +1,10 @@
+separadorCSV=;
+usaProxy=NO
+ipProxy=10.152.140.252
+puertoProxy=7777
+entidadesAIntegrar=contactoCompraProducto
+borrarDataSetAlFinalizar=false
+
+identificadorAtributo=#
+
+nivelParalelismo=10

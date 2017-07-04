@@ -1,0 +1,44 @@
+{
+	"productor":{
+    "ClaseProductor": "#CLASE_PRODUCTOR#",
+    "Cliensec": "#CLIENSEC#",
+    "CodigoCompleto": "#CODIGO_COMPLETO#",
+    "DniCuit": "#DNI_CUIT#",
+    "EjecutivoDeCuenta": "#EJECUTIVO_CUENTA#",
+    "GrupoOrganizador": "#GRUPO_ORGANIZADOR#",
+    "Nombre": "#NOMBRE#",
+    "Organizador": "#ORGANIZADOR#",
+    "Segmentacion": "#SEGMENTACION#",
+    "UnidadDeNegocio": "#UNIDAD_NEGOCIO#"
+    },
+    "contacto":{
+    	"name": {
+      	  "first": "#APELLIDO#",
+      	  "last": "#NOMBRE# "
+	    },
+	     "customFields": {
+	        "Qbe": {
+	            "AceptaCampana": null,
+	            "AceptaEnvioInformacion": true,
+	            "AceptaOportunidad": null,
+	            "Antiguedad": null,
+	            "Beneficios": null,
+	            "Calle": "GRAL GUEMES",
+	            "CampaniaDeBienvenida": null,
+	            "CampaniaDeCumpleanios": null,
+	            "CancelarSubscripcion": null,
+	            "CategoriaContactoPR": null,
+	            "CodigoPostal": "3500",
+	            "Conflictivo": false,
+	            "CuilCuit": null,
+	            "Departamento": "    ",
+	            "Dni": "7450676",
+	            "Domicilio": "00567",
+	            "EmailAlternativo": null,
+	            "FechaAlta": "1995-08-18",
+	            "FechaRechazoOp": null,
+	            "Genero": "M"
+	            }
+	        }
+    }
+}

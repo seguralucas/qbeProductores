@@ -1,0 +1,82 @@
+{
+	"CLASE_PRODUCTOR":{
+	"tipo":"cadena"	
+	},
+	"CLIENSEC":{
+	"tipo":"entero"
+	},
+	"CODIGO_COMPLETO":{
+		"tipo":"cadena"
+	},
+	"DNI_CUIT":{
+		"tipo":"cadena"	
+	},
+	"EJECUTIVO_CUENTA":{
+		"tipo":"cadena"
+	},
+	"GRUPO_ORGANIZADOR":{
+		"tipo":"cadena"
+	},
+	"NOMBRE":{
+		"tipo":"cadena"
+	},
+	"ORGANIZADOR":{
+		"tipo":"cadena"
+	},
+	"SEGMENTACION":{
+		"tipo":"cadena"
+	},
+	"UNIDAD_NEGOCIO":{
+		"tipo":"cadena"
+	},
+	
+	
+	
+	
+	
+	"APELLIDO":{
+		"tipo":"cadena"
+	},
+	"SEXO":{
+		"tipo":"cadena"
+	},
+	"SEGMENTO":{
+		"tipo":"cadena"
+	},
+	"CATEGORIA":{
+		"tipo":"cadena"
+	},
+	"TIPO_DOC":{
+		"tipo":"cadena"
+	},
+	"CALLE":{
+		"tipo":"cadena"
+	},
+	"NRO":{
+		"tipo":"cadena"
+	},
+	"PISO":{
+		"tipo":"cadena"
+	},	
+	"DEPTO":{
+		"tipo":"cadena"
+	},
+	"LOCALIDAD":{
+		"tipo":"cadena"
+	},
+	"PROVINCIA":{
+		"tipo":"cadena"
+	},
+	"COD_POSTAL":{
+		"tipo":"cadena"
+	},		
+	"TELEFONO":{
+		"tipo":"cadena",
+		"borrarSiEsNull":"phones"
+	},
+	"MAIL":{
+		"tipo":"cadena",
+		"borrarSiEsNull":"emails[0]"
+	}
+}
+

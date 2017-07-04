@@ -1,0 +1,35 @@
+{
+	"CLASE_PRODUCTOR":{
+	"tipo":"cadena"	
+	},
+	"CLIENSEC":{
+	"tipo":"entero"
+	},
+	"CODIGO_COMPLETO":{
+		"tipo":"cadena"
+	},
+	"DNI_CUIT":{
+		"tipo":"cadena"	
+	},
+	"sellerSku":{
+		"tipo":"cadena"
+	},
+	"uniqueId":{
+		"tipo":"cadena"
+	},
+	"propiedadesExtras.idcontactoCompraProducto/compra":{
+		"tipo":"entero"
+	}
+}
+
+
+    "ClaseProductor": "#CLASE_PRODUCTOR#",
+    "Cliensec": "#CLIENSEC#",
+    "CodigoCompleto": "#CODIGO_COMPLETO#",
+    "DniCuit": "#DNI_CUIT#",
+    "EjecutivoDeCuenta": "#EJECUTIVO_CUENTA#",
+    "GrupoOrganizador": "#GRUPO_ORGANIZADOR#",
+    "Nombre": "#NOMBRE#",
+    "Organizador": "#ORGANIZADOR#",
+    "Segmentacion": "#SEGMENTACION#",
+    "UnidadDeNegocio": "#UNIDAD_NEGOCIO#"

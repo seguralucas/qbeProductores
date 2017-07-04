@@ -1,0 +1,14 @@
+{
+    "ClaseProductor": "#CLASE_PRODUCTOR#",
+    "Cliensec": "#CLIENSEC#",
+    "CodigoCompleto": "#CODIGO_COMPLETO#",
+    "CodigoTexto": null,
+    "DniCuit": "#DNI_CUIT#",
+    "EjecutivoDeCuenta": null,
+    "GerenteProdu": null,
+    "GrupoOrganizador": null,
+    "Nombre": "#NOMBRE#",
+    "Organizador": null,
+    "Segmentacion": "#SEGMENTACION#",
+    "UnidadDeNegocio": null
+}

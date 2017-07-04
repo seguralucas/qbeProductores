@@ -1,0 +1,42 @@
+{
+	"CLASE_PRODUCTOR":{
+	"tipo":"cadena"	
+	},
+	"CLIENSEC":{
+	"tipo":"entero"
+	},
+	"CODIGO_COMPLETO":{
+		"tipo":"cadena"
+	},
+	"DNI_CUIT":{
+		"tipo":"cadena"	
+	},
+	"EJECUTIVO_CUENTA":{
+		"tipo":"cadena"
+	},
+	"GRUPO_ORGANIZADOR":{
+		"tipo":"cadena"
+	},
+	"NOMBRE":{
+		"tipo":"cadena"
+	},
+	"ORGANIZADOR":{
+		"tipo":"cadena"
+	},
+	"SEGMENTACION":{
+		"tipo":"cadena"
+	},
+	"UNIDAD_NEGOCIO":{
+		"tipo":"cadena"
+	},
+	
+	"TELEFONO":{
+		"tipo":"cadena",
+		"borrarSiEsNull":"phones"
+	},
+	"MAIL":{
+		"tipo":"cadena",
+		"borrarSiEsNull":"emails[0]"
+	}
+}
+
