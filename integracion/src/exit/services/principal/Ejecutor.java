@@ -117,18 +117,20 @@ public class Ejecutor {
 	private final String URL_QBE_QUERYS=URL_QBE_SERVICIOS+"queryResults/?query=";
 	private String getIdUnidadDeNegocio(AbstractJsonRestEstructura json, String entidad, String elemento){
 		GetExistFieldURLQueryRightNow get= new GetExistFieldURLQueryRightNow();
-		return (String)get.realizarPeticion(EPeticiones.GET, URL_QBE_QUERYS+"select%20id%20from%20Qbe."+entidad+"%20where%20Descripcion%20=%20%27"+json.getMapCabeceraValor().get(elemento).toString().replaceAll(" ","%20")+"%27",null,null,json.getConfEntidadPart().getCabecera(), json.getConfEntidadPart());
+		return (String)get.realizarPeticion(EPeticiones.GET, URL_QBE_QUERYS+"select%20id%20from%20"+entidad+"%20where%20Descripcion%20=%20%27"+json.getMapCabeceraValor().get(elemento).toString().replaceAll(" ","%20")+"%27",null,null,json.getConfEntidadPart().getCabecera(), json.getConfEntidadPart());
 	}
 
 	private JSONObject armarJsonProductor(AbstractJsonRestEstructura json){
-		String idUnidadDeNegocio=getIdUnidadDeNegocio(json,"UnidadDeNegocio","UNIDAD_NEGOCIO");
-		String idOrganizador=getIdUnidadDeNegocio(json,"Organizador","ORGANIZADOR");
-		String idGrupoOrganizador=getIdUnidadDeNegocio(json,"GrupoOrganizador","GRUPO_ORGANIZADOR");
-		System.out.println(idUnidadDeNegocio+" "+idOrganizador+" "+idGrupoOrganizador);
+		String idUnidadDeNegocio=getIdUnidadDeNegocio(json,"Qbe.UnidadDeNegocio","UNIDAD_NEGOCIO");
+		String idOrganizador=getIdUnidadDeNegocio(json,"Qbe.Organizador","ORGANIZADOR");
+		String idGrupoOrganizador=getIdUnidadDeNegocio(json,"Qbe.GrupoOrganizador","GRUPO_ORGANIZADOR");
+		String idEjecutivoCuenta=getIdUnidadDeNegocio(json,"Qbe2.EjecutivoDeCuenta","EJECUTIVO_CUENTA");
+		System.out.println(idUnidadDeNegocio+" "+idOrganizador+" "+idGrupoOrganizador+" "+idEjecutivoCuenta);
 		JSONObject jsonProductor=(JSONObject)json.getJson().get("productor");
 		JSONObject jsonIdUnidadDeNegocio = new JSONObject();
 		JSONObject jsonIdOrganizador = new JSONObject();
 		JSONObject jsonIdGrupoOrganizador = new JSONObject();
+		JSONObject jsonIdEjecutivo = new JSONObject();
 
 		jsonProductor.remove("UnidadDeNegocio");
 		jsonIdUnidadDeNegocio.put("id", Long.parseLong(idUnidadDeNegocio));		
@@ -141,12 +143,19 @@ public class Ejecutor {
 		jsonProductor.remove("GrupoOrganizador");
 		jsonIdGrupoOrganizador.put("id", Long.parseLong(idGrupoOrganizador));
 		jsonProductor.put("GrupoOrganizador", jsonIdGrupoOrganizador);
+		
+		jsonProductor.remove("EjecutivoDeCuenta");
+		jsonIdEjecutivo.put("id", Long.parseLong(idEjecutivoCuenta));
+		jsonProductor.put("EjecutivoDeCuenta", jsonIdEjecutivo);
+		
 		return jsonProductor;
 
 	}
 	
 	private String getIdContacto(AbstractJsonRestEstructura json){
 		GetExistFieldURLQueryRightNow get= new GetExistFieldURLQueryRightNow();
+		if(json.getMapCabeceraValor().get("MAIL")==null)
+			return null;
 		return (String)get.realizarPeticion(EPeticiones.GET, URL_QBE_QUERYS+"select%20id%20from%20contacts%20where%20Contacts.Emails.EmailList.Address=%27"+json.getMapCabeceraValor().get("MAIL").toString()+"%27",null,null,json.getConfEntidadPart().getCabecera(), json.getConfEntidadPart());
 	}
 	

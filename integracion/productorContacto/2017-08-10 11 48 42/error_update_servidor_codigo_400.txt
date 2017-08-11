@@ -1,0 +1,10 @@
+{
+    "type": "https://qbe.custhelp.com/services/rest/connect/exceptions/OSC-CREST-00013",
+    "title": "Recurso no reconocido",
+    "status": 400,
+    "detail": "Invalid property specified: Segmentacion",
+    "instance": "https://qbe.custhelp.com/services/rest/connect/v1.3/Qbe.Productor/19298",
+    "o:errorCode": "OSC-CREST-00013"
+}
+**********************************************************************************************
+##############################################################################################

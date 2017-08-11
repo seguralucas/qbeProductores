@@ -53,14 +53,34 @@ public class UpdateGenericoRightNow extends AbstractHTTP{
 	}
 	@Override
 	protected Object procesarPeticionOK(BufferedReader in, String id, int responseCode) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String path=("error_update_servidor_codigo_"+responseCode+".txt");
+	    File fichero = DirectorioManager.getDirectorioFechaYHoraInicio(path);
+	    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fichero, true)));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+         	out.println(inputLine);
+        }
+        out.println(ConstantesGenerales.SEPARADOR_ERROR_JSON);
+        CSVHandler csvHandler = new CSVHandler();
+        out.println(ConstantesGenerales.SEPARADOR_ERROR_PETICION);
+        out.close();		
+        return null;
 	}
 
 	@Override
 	protected Object procesarPeticionError(BufferedReader in, String id, int responseCode) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String path=("error_update_servidor_codigo_"+responseCode+".txt");
+	    File fichero = DirectorioManager.getDirectorioFechaYHoraInicio(path);
+	    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fichero, true)));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+         	out.println(inputLine);
+        }
+        out.println(ConstantesGenerales.SEPARADOR_ERROR_JSON);
+        CSVHandler csvHandler = new CSVHandler();
+        out.println(ConstantesGenerales.SEPARADOR_ERROR_PETICION);
+        out.close();		
+        return null;
 	}
 
 	@Override

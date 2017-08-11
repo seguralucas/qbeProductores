@@ -1,8 +1,0 @@
-url=https://qbe.custhelp.com/services/rest/connect/v1.3/Qbe.Productor
-cabecera={"Authorization": "Basic dXN1YXJpby5pbXBvcnRhZG9yOkx1Y2FzMTIz"}
-
-identificadorAtributo=#
-
-metodoEjecutor=updateRecuperandoIdPorQuery
-parametroEjecutor=https://whirlpool.custhelp.com/services/rest/connect/v1.3/queryResults/?query=select%20id%20from%20contacts%20where%20customFields.Whirlpool.numero_documento=%27#clientProfileData.document#%27
-

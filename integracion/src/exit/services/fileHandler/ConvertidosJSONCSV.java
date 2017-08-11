@@ -28,7 +28,7 @@ public class ConvertidosJSONCSV{
 	   
 	   public AbstractJsonRestEstructura convertirCSVaJSONLineaALinea(File fileCSV) {
 			ConfiguracionEntidadParticular r= RecEntAct.getInstance().getCep();
-		   try{
+		   try{			   
 			   if(br==null)
 			   br = new BufferedReader(
 		  		         new InputStreamReader(
@@ -42,7 +42,7 @@ public class ConvertidosJSONCSV{
   				CSVHandler.cabeceraFichero=line;//Esto es sólo en caso de que estemos haciendo update
   			}
   			else{
-  	    		String[] valoresCsv= line.replace("\"", "'").split(r.getSeparadorCSVREGEX());
+  	    		String[] valoresCsv= line.replace("\"", "'").split(r.getSeparadorCSVREGEX(),-1);
 				try{
   					if(ColumnasMayorCabecera(valoresCsv))
   						throw new Exception();

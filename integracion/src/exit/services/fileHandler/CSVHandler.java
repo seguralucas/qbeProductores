@@ -69,6 +69,13 @@ public class CSVHandler {
 				 escribirCampos(file,line,true);
 		 }
 		 
+		 public void escribirCSV(File file,String line, boolean tieneCabeceraDefault, boolean onlyNotNull) throws IOException{
+			 if(tieneCabeceraDefault)
+				 escribirCSV(file,line,cabeceraFichero,onlyNotNull);
+			 else
+				 escribirCampos(file,line,onlyNotNull);
+		 }
+		 
 		 public void escribirCSV(File file,String line) throws IOException{
 			 escribirCSV(file,line,true);
 		 }

@@ -1,5 +1,0 @@
-separadorCSV=,
-metodoEjecutor=ejecutorQBEProductor
-action=CSVASERVICIO
-nivelParalelismo=10
-pathCSVRegistros=D\:/Exit/productor.csv

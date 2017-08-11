@@ -34,7 +34,10 @@
 	
 	
 	
-	"APELLIDO":{
+	"NOMBRE_CONTACTO":{
+		"tipo":"cadena"
+	},
+	"APELLIDO_CONTACTO":{
 		"tipo":"cadena"
 	},
 	"SEXO":{
@@ -72,11 +75,11 @@
 	},		
 	"TELEFONO":{
 		"tipo":"cadena",
-		"borrarSiEsNull":"phones"
+		"borrarSiEsNull":"contacto.phones"
 	},
 	"MAIL":{
 		"tipo":"cadena",
-		"borrarSiEsNull":"emails[0]"
+		"borrarSiEsNull":"contacto.emails"
 	}
 }
 

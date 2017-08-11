@@ -182,7 +182,7 @@ public class ConfiguracionEntidadParticular {
 
 		public String getIpProxy() {
 			if(getValueMap("ipProxy")==null)
-				RecuperadorPropiedadesConfiguracionGenerales.getInstance().getIpProxy();
+				return RecuperadorPropiedadesConfiguracionGenerales.getInstance().getIpProxy();
 			return getValueMap("ipProxy");
 		}
 

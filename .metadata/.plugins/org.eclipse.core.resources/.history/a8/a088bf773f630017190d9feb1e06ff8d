@@ -1,0 +1,36 @@
+{
+	"productor":{
+    "ClaseProductor": "#CLASE_PRODUCTOR#",
+    "Cliensec": "#CLIENSEC#",
+    "CodigoCompleto": "#CODIGO_COMPLETO#",
+    "DniCuit": "#DNI_CUIT#",
+    "EjecutivoDeCuenta": "#EJECUTIVO_CUENTA#",
+    "GrupoOrganizador": "#GRUPO_ORGANIZADOR#",
+    "Nombre": "#NOMBRE#",
+    "Organizador": "#ORGANIZADOR#",
+    "Segmentacion": "#SEGMENTACION#",
+    "UnidadDeNegocio": "#UNIDAD_NEGOCIO#"
+    },
+    "contacto":{
+    	"name": {
+      	  "first": "#APELLIDO#",
+      	  "last": "#NOMBRE# "
+	    },
+	     "customFields": {
+	        "Qbe": {
+	            "Genero": "#SEXO#",
+	            "SegmentoContactoPR": "#SEGMENTO#",
+	            "CategoriaContactoPR":"#CATEGORIA#",
+	            "TipoDocumento":"#TIPO_DOC#",
+	            "Calle":"#CALLE#",
+	            "Piso":"#PISO#",
+	            "Departamento":"#DEPTO#",
+	            "Localidad":"#LOCALIDAD#",
+	            "Provincia":"#PROVINCIA#",
+	            "CodigoPostal":"#COD_POSTAL#"
+	            }
+	        },
+ 	    "phones":{"number":"#TELEFONO#","phoneType":{"id":0}},
+	     "emails":[{"address":"#MAIL#", "addressType":{"id":0}}]
+    }
+}
