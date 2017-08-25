@@ -1,7 +1,0 @@
-{
-    "importeConDescuento": "#paymentData.transactions[0].payments[0].value#",
-        "ordenCompra":"#orderId#",
-    
-}
-
-

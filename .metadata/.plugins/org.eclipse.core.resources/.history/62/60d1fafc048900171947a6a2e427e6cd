@@ -38,7 +38,7 @@ public class Ejecutor {
 	public Object updateRecuperandoIdPorQuery(String parametros, AbstractJsonRestEstructura jsonEst, String urlInsertUpdate){
 		String idOrder="No obtenido";
 		try{
-/*		String separador=jsonEst.getConfEntidadPart().getIdentificadorAtributo();
+		String separador=jsonEst.getConfEntidadPart().getIdentificadorAtributo();
 		int aux;
 		int index = parametros.indexOf(separador);
 		while(index >= 0) {
@@ -61,7 +61,7 @@ public class Ejecutor {
 			UpdateContactoProductor update= new UpdateContactoProductor();
 			update.setNombreEntidad("productor");
 			return update.realizarPeticion(EPeticiones.UPDATE, urlInsertUpdate , id, jsonEst,jsonEst.getConfEntidadPart().getCabecera(),jsonEst.getConfEntidadPart());
-		}*/
+		}
 		System.out.println("Se va a insertar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre());
 			PostContactoProductor insertar= new PostContactoProductor();
 			insertar.setNombreEntidad("productor");

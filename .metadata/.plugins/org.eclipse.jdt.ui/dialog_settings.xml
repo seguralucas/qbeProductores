@@ -3,10 +3,13 @@
 	<section name="FatJarPackageWizard">
 		<item value="D:\Snap2\qbeProductor" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Principal - integracion" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\ejecutar.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\5.0\ejecutar.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\5.0\ejecutar.jar"/>
+			<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\3.0\ejecutar.jar"/>
+			<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\2.0\ejecutar.jar"/>
 			<item value="D:\Exit\QBE\jar\enviados a QBE\Productor\ejecutar.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">

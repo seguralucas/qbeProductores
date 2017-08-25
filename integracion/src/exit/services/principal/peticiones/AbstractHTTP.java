@@ -93,8 +93,12 @@ public abstract class AbstractHTTP {
 	            else{
 	            	in = new BufferedReader(
 		                    new InputStreamReader(conn.getErrorStream()));
-	            	if(id!=null)
-	            		o=procesarPeticionError(in,id,responseCode);
+	            	if(id!=null){
+	            		if( json!=null)
+	            			o=procesarPeticionError(in,json,id,responseCode);
+	            		else
+	            			o=procesarPeticionError(in,id,responseCode);
+	            	}
 	            	else if( json!=null)
 	            		o=procesarPeticionError(in,json,responseCode);
 	            	else 

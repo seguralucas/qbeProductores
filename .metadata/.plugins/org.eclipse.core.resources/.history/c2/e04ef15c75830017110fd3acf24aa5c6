@@ -59,7 +59,7 @@ public class Principal {
 	
 	private static void csvAServicio() throws Exception{
 		ConfiguracionEntidadParticular r= RecEntAct.getInstance().getCep();
-/*		File f= new File("D:/Exit/borrar.txt");
+		File f= new File("D:/Exit/borrar.txt");
 		FileReader fr= new FileReader(f);
 		BufferedReader br= new BufferedReader(fr);
 		String d;
@@ -69,7 +69,7 @@ public class Principal {
 			System.out.println(eg.realizarPeticion(EPeticiones.DELETE, "https://qbe.custhelp.com/services/rest/connect/v1.3/contacts/"+d, r.getCabecera()));
 		}
 		if(true)
-			return;*/
+			return;
 
 		ParalelizadorDistintosFicheros hiloApartre = new ParalelizadorDistintosFicheros();
       	try {

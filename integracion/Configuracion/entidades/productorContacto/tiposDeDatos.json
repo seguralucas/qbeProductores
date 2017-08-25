@@ -34,10 +34,10 @@
 	
 	
 	
-	"NOMBRE_CONTACTO":{
+	"NOMBRE_CONTACTO_PR":{
 		"tipo":"cadena"
 	},
-	"APELLIDO_CONTACTO":{
+	"APELLIDO_CONTACTO_PR":{
 		"tipo":"cadena"
 	},
 	"SEXO":{
@@ -61,7 +61,7 @@
 	"PISO":{
 		"tipo":"cadena"
 	},	
-	"DEPTO":{
+	"PUERTA":{
 		"tipo":"cadena"
 	},
 	"LOCALIDAD":{

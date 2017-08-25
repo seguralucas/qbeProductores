@@ -1,36 +1,36 @@
 {
 	"productor":{
-    "ClaseProductor": "#CLASE_PRODUCTOR#",
-    "Cliensec": "#CLIENSEC#",
-    "CodigoCompleto": "#CODIGO_COMPLETO#",
-    "DniCuit": "#DNI_CUIT#",
-    "EjecutivoDeCuenta": "#EJECUTIVO_CUENTA#",
-    "GrupoOrganizador": "#GRUPO_ORGANIZADOR#",
-    "Nombre": "#NOMBRE#",
-    "Organizador": "#ORGANIZADOR#",
-    "Segmentacion1": "#SEGMENTACION#",
-    "UnidadDeNegocio": "#UNIDAD_NEGOCIO#"
+    "ClaseProductor": "ÁCLASE_PRODUCTORÁ",
+    "Cliensec": "ÁCLIENSECÁ",
+    "CodigoCompleto": "ÁCODIGO_COMPLETOÁ",
+    "DniCuit": "ÁDNI_CUITÁ",
+    "EjecutivoDeCuenta": "ÁEJECUTIVO_CUENTAÁ",
+    "GrupoOrganizador": "ÁGRUPO_ORGANIZADORÁ",
+    "Nombre": "ÁNOMBREÁ",
+    "Organizador": "ÁORGANIZADORÁ",
+    "Segmentacion1": "ÁSEGMENTACIONÁ",
+    "UnidadDeNegocio": "ÁUNIDAD_NEGOCIOÁ"
     },
     "contacto":{
     	"name": {
-      	  "first": "#APELLIDO_CONTACTO#",
-      	  "last": "#NOMBRE_CONTACTO# "
+      	  "first": "ÁNOMBRE_CONTACTO_PRÁ",
+      	  "last": "ÁAPELLIDO_CONTACTO_PRÁ "
 	    },
 	     "customFields": {
 	        "Qbe": {
-	            "Genero": "#SEXO#",
-	            "SegmentoContactoPR": "#SEGMENTO#",
-	            "CategoriaContactoPR":"#CATEGORIA#",
-	            "TipoDocumento":"#TIPO_DOC#",
-	            "Calle":"#CALLE#",
-	            "Piso":"#PISO#",
-	            "Departamento":"#DEPTO#",
-	            "Localidad":"#LOCALIDAD#",
-	            "Provincia":"#PROVINCIA#",
-	            "CodigoPostal":"#COD_POSTAL#"
+	            "Genero": "ÁSEXOÁ",
+	            "SegmentoContactoPR": "ÁSEGMENTOÁ",
+	            "CategoriaContactoPR":"ÁCATEGORIAÁ",
+	            "TipoDocumento":"ÁTIPO_DOCÁ",
+	            "Calle":"ÁCALLEÁ",
+	            "Piso":"ÁPUERTAÁ",
+	            "Departamento":"ÁDEPTOÁ",
+	            "Localidad":"ÁLOCALIDADÁ",
+	            "Provincia":"ÁPROVINCIAÁ",
+	            "CodigoPostal":"ÁCOD_POSTALÁ"
 	            }
 	        },
- 	    "phones":{"number":"#TELEFONO#","phoneType":{"id":0}},
-	     "emails":[{"address":"#MAIL#", "addressType":{"id":0}}]
+ 	    "phones":{"number":"ÁTELEFONOÁ","phoneType":{"id":0}},
+	     "emails":[{"address":"ÁMAILÁ", "addressType":{"id":0}}]
     }
 }

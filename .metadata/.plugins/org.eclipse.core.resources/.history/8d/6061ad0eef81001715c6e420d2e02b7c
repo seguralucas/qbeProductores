@@ -65,7 +65,7 @@ public class Principal {
 		String d;
 		while((d=br.readLine())!=null){
 			EliminarGenerico eg= new EliminarGenerico();
-			System.out.println("https://qbe.custhelp.com/services/rest/connect/v1.3/Qbe.Productor/"+d);
+			System.out.println("https://qbe.custhelp.com/services/rest/connect/v1.3/contacts/"+d);
 			System.out.println(eg.realizarPeticion(EPeticiones.DELETE, "https://qbe.custhelp.com/services/rest/connect/v1.3/contacts/"+d, r.getCabecera()));
 		}
 		if(true)

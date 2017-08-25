@@ -1,9 +1,0 @@
-{
-	"paymentData.transactions[0].payments[0].value":{
-		"tipo":"cadena",
-		"precioConPunto":"true"
-	},
-	"orderId":{
-		"tipo":"cadena"	
-	}
-}
