@@ -38,7 +38,7 @@ public class Ejecutor {
 	public Object updateRecuperandoIdPorQuery(String parametros, AbstractJsonRestEstructura jsonEst, String urlInsertUpdate){
 		String idOrder="No obtenido";
 		try{
-/*		String separador=jsonEst.getConfEntidadPart().getIdentificadorAtributo();
+		String separador=jsonEst.getConfEntidadPart().getIdentificadorAtributo();
 		int aux;
 		int index = parametros.indexOf(separador);
 		while(index >= 0) {
@@ -61,7 +61,7 @@ public class Ejecutor {
 			UpdateContactoProductor update= new UpdateContactoProductor();
 			update.setNombreEntidad("productor");
 			return update.realizarPeticion(EPeticiones.UPDATE, urlInsertUpdate , id, jsonEst,jsonEst.getConfEntidadPart().getCabecera(),jsonEst.getConfEntidadPart());
-		}*/
+		}
 		System.out.println("Se va a insertar la entidad: "+  jsonEst.getConfEntidadPart().getEntidadNombre());
 			PostContactoProductor insertar= new PostContactoProductor();
 			insertar.setNombreEntidad("productor");
@@ -175,7 +175,7 @@ public class Ejecutor {
 		String idContacto=getIdContacto(json);
 		idContacto=idContacto==null?idContacto:idContacto.trim();
 		/**/
-		JsonGenerico jsonProductor=(JsonGenerico) this.updateRecuperandoIdPorQuery(URL_QBE_QUERYS+"select%20id%20from%20Qbe.Productor%20where%20Cliensec%20=%20"+json.getMapCabeceraValor().get("CLIENSEC").toString(),json , URL_QBE_SERVICIOS+"Qbe.Productor");
+		JsonGenerico jsonProductor=(JsonGenerico) this.updateRecuperandoIdPorQuery(URL_QBE_QUERYS+"select%20id%20from%20Qbe.Productor%20where%20Cliensec%20=%20"+json.getMapCabeceraValor().get("CLIENSEC").toString()+"%20and%20CodigoCompleto%20=%20%27"+json.getMapCabeceraValor().get("CODIGO_COMPLETO").toString()+"%27",json , URL_QBE_SERVICIOS+"Qbe.Productor");
 		if(jsonProductor==null)
 			return null;
 		Long idProductor=Long.parseLong(((JSONObject)jsonProductor.getJson().get("propiedadesExtras")).get("idproductorContacto").toString().trim());
