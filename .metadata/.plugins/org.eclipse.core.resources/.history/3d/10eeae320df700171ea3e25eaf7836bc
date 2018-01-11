@@ -32,7 +32,7 @@ public class ConvertidosJSONCSV{
 			   if(br==null)
 			   br = new BufferedReader(
 		  		         new InputStreamReader(
-		  		                 new FileInputStream(fileCSV), "UTF-8"));
+		  		                 new FileInputStream(fileCSV)));
   		while ((line = br.readLine()) != null) {
   			if(this.esPrimeraVez){
   				String firstChar=String.valueOf(line.charAt(0));
